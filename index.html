@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Holy Sheet! Grazing: curated flat-lay grazing and feast tables on the Mornington Peninsula. We unroll. We style. You feast.">
+<title>Holy Sheet! Grazing</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Karla:ital,wght@0,400;0,500;0,700;1,400&family=Caveat:wght@500;600&display=swap">
+<style>
+  :root{
+    --ground:#f6f4ee;
+    --paper:#fbfaf6;
+    --kraft:#c89b6d;
+    --kraft-deep:#a67b4f;
+    --kraft-pale:#e9d9c2;
+    --charcoal:#2a2521;
+    --ink:#3a332e;
+    --muted:#6f645b;
+    --fig:#5e2d4e;
+    --fig-soft:#8d5b7d;
+    --sage:#7f8c6e;
+    --sage-pale:#e3e7dc;
+    --line:#e2d9cb;
+    --ff-display:"Fraunces",Georgia,"Times New Roman",serif;
+    --ff-body:"Karla","Helvetica Neue",Arial,sans-serif;
+    --ff-hand:"Caveat","Segoe Print","Bradley Hand",cursive;
+    --w:1120px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--ff-body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+  img{max-width:100%;display:block}
+  a{color:var(--fig)}
+  h1,h2,h3{font-family:var(--ff-display);font-weight:500;color:var(--charcoal);line-height:1.1;text-wrap:balance;margin:0}
+  h2{font-size:clamp(2rem,4vw,3rem);letter-spacing:-.01em}
+  h3{font-size:1.45rem}
+  p{margin:0}
+  .wrap{max-width:var(--w);margin-inline:auto;padding-inline:clamp(16px,4vw,40px)}
+  .eyebrow{font-family:var(--ff-body);font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--kraft-deep)}
+  .hand{font-family:var(--ff-hand);font-size:1.5rem;color:var(--fig);line-height:1.1}
+  .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.4rem;border-radius:999px;font-weight:700;text-decoration:none;font-size:.98rem;border:2px solid transparent;transition:transform .15s ease,background .15s ease}
+  .btn:hover{transform:translateY(-1px)}
+  .btn:focus-visible,a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--sage);outline-offset:2px}
+  .btn-fig{background:var(--fig);color:#fff}
+  .btn-fig:hover{background:#4c2340}
+  .btn-ghost{background:transparent;color:var(--charcoal);border-color:var(--charcoal)}
+  .btn-ghost:hover{background:var(--charcoal);color:#fff}
+
+  /* nav */
+  .nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--ground) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:64px}
+  .brand{font-family:var(--ff-display);font-weight:600;font-size:1.25rem;color:var(--charcoal);text-decoration:none;display:flex;align-items:baseline;gap:.4rem}
+  .brand em{font-style:italic;font-weight:300;color:var(--kraft-deep);font-size:.9rem;letter-spacing:.12em}
+  .nav ul{list-style:none;margin:0;padding:0;display:flex;gap:1.5rem}
+  .nav li a{text-decoration:none;color:var(--ink);font-weight:500;font-size:.95rem}
+  .nav li a:hover{color:var(--fig)}
+  @media (max-width:760px){.nav ul{display:none}}
+
+  /* hero */
+  .hero{padding-block:clamp(2rem,6vw,4.5rem) clamp(2.5rem,6vw,5rem);position:relative;overflow:hidden}
+  .hero .wrap{display:grid;gap:1.75rem;justify-items:center;text-align:center}
+  .hero-logo{width:min(100%,900px)}
+  .hero-logo img{width:100%;height:auto;mix-blend-mode:multiply}
+  .hero h1{font-size:clamp(1.6rem,3.2vw,2.4rem);font-weight:400;font-style:italic;max-width:24ch;color:var(--ink)}
+  .hero .lede{max-width:56ch;font-size:1.1rem;color:var(--muted)}
+  .hero .cta{display:flex;gap:.75rem;flex-wrap:wrap;justify-content:center}
+  .hero .hand{position:absolute;transform:rotate(-6deg)}
+  .hero .hand.l{left:4vw;top:22%}
+  .hero .hand.r{right:4vw;top:30%;transform:rotate(5deg)}
+  @media (max-width:900px){.hero .hand{display:none}}
+
+  /* kraft band */
+  .band{background:var(--kraft);color:var(--charcoal);padding-block:1rem;border-block:2px solid var(--kraft-deep)}
+  .band .wrap{display:flex;flex-wrap:wrap;gap:.75rem 2.5rem;justify-content:center;font-family:var(--ff-display);font-style:italic;font-size:1.15rem}
+  .band span::before{content:"✦";margin-right:.6rem;font-style:normal;color:var(--fig)}
+
+  section{padding-block:clamp(3rem,7vw,5.5rem)}
+  .sec-head{display:grid;gap:.6rem;max-width:62ch;margin-bottom:clamp(1.75rem,4vw,3rem)}
+  .sec-head p{color:var(--muted);font-size:1.05rem}
+
+  /* how it works */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+  .step{border-top:2px solid var(--charcoal);padding-top:1.1rem;display:grid;gap:.6rem}
+  .step .n{font-family:var(--ff-display);font-style:italic;font-size:2.2rem;color:var(--kraft-deep);line-height:1}
+  .step p{color:var(--muted)}
+  @media (max-width:760px){.steps{grid-template-columns:1fr}}
+
+  /* sheets */
+  .sheets{background:var(--paper);border-block:1px solid var(--line)}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+  .card{background:var(--ground);border:1px solid var(--line);border-radius:4px;overflow:hidden;display:grid;grid-template-rows:auto 1fr}
+  .card figure{margin:0;aspect-ratio:478/309;overflow:hidden;background:var(--kraft-pale)}
+  .card figure img{width:100%;height:100%;object-fit:cover}
+  .card .body{padding:1.35rem 1.35rem 1.5rem;display:grid;gap:.9rem;align-content:start}
+  .card h3{font-size:1.7rem}
+  .card .guests{color:var(--muted);font-size:.9rem;letter-spacing:.06em;text-transform:uppercase;font-weight:700}
+  .card .price{font-family:var(--ff-display);font-size:2rem;color:var(--fig);font-variant-numeric:tabular-nums}
+  .card .price small{font-family:var(--ff-body);font-size:.8rem;color:var(--muted);font-weight:500;margin-left:.3rem}
+  .spec{display:grid;grid-template-columns:auto 1fr;gap:.35rem 1rem;font-size:.95rem;border-top:1px dashed var(--line);padding-top:.9rem}
+  .spec dt{color:var(--kraft-deep);font-weight:700;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;padding-top:.15em}
+  .spec dd{margin:0;color:var(--ink)}
+  .card.hero-card{border-color:var(--fig-soft);box-shadow:0 12px 30px -18px rgba(94,45,78,.45)}
+  .card .tag{justify-self:start;background:var(--fig);color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.25rem .6rem;border-radius:999px}
+  @media (max-width:960px){.cards{grid-template-columns:1fr}.card{grid-template-columns:1fr}}
+  .sheets .note{margin-top:1.5rem;color:var(--muted);font-size:.95rem;max-width:70ch}
+
+  /* menu on kraft */
+  .menu-wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:2.5rem;align-items:start}
+  .kraft-sheet{background:var(--kraft-pale);
+    background-image:radial-gradient(ellipse at 20% 10%,rgba(255,255,255,.35),transparent 55%),radial-gradient(ellipse at 90% 90%,rgba(166,123,79,.18),transparent 50%);
+    border:1px solid var(--kraft);padding:clamp(1.5rem,4vw,2.75rem);position:relative;
+    clip-path:polygon(0 1%,3% 0,50% .6%,97% 0,100% 2%,99.4% 50%,100% 98%,97% 100%,50% 99.4%,3% 100%,0 98%,.6% 50%)}
+  .stamp{position:absolute;right:1.4rem;top:1.2rem;width:92px;height:92px;border:3px double var(--fig);border-radius:50%;display:grid;place-items:center;text-align:center;font-family:var(--ff-display);font-weight:600;font-size:.7rem;line-height:1.05;color:var(--fig);transform:rotate(12deg);opacity:.75;letter-spacing:.05em;text-transform:uppercase;padding:.5rem}
+  .kraft-sheet h3{font-size:2rem;margin-bottom:.35rem}
+  .kraft-sheet .sub{font-style:italic;font-family:var(--ff-display);color:var(--kraft-deep);margin-bottom:1.5rem}
+  .prov{display:grid;gap:1.1rem;margin-top:1.4rem}
+  .prov div{display:grid;gap:.15rem}
+  .prov b{font-family:var(--ff-display);font-size:1.15rem;font-weight:600;color:var(--charcoal)}
+  .prov span{color:var(--ink)}
+  .base{background:rgba(255,255,255,.45);border-left:3px solid var(--sage);padding:.9rem 1rem;color:var(--ink);font-size:.98rem}
+  .menu-side{display:grid;gap:1.25rem}
+  .menu-side p{color:var(--muted)}
+  .menu-side .diet{background:var(--sage-pale);padding:1.1rem 1.25rem;border-radius:4px;color:var(--ink);font-size:.98rem}
+  @media (max-width:880px){.menu-wrap{grid-template-columns:1fr}}
+
+  /* about */
+  .about{background:var(--charcoal);color:#e9e2d8}
+  .about h2,.about h3{color:#fff}
+  .about .eyebrow{color:var(--kraft)}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+  .about .copy{display:grid;gap:1.1rem;font-size:1.08rem;max-width:56ch}
+  .about .copy .punch{font-family:var(--ff-display);font-style:italic;font-size:1.6rem;color:var(--kraft)}
+  .about figure{margin:0;background:#fff;padding:1rem;transform:rotate(-1.5deg);box-shadow:0 20px 50px -20px rgba(0,0,0,.6)}
+  .about figcaption{font-family:var(--ff-hand);font-size:1.3rem;color:var(--charcoal);text-align:center;padding-top:.6rem}
+  @media (max-width:880px){.about-grid{grid-template-columns:1fr}}
+
+  /* planners */
+  .planners .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+  .pcard{background:var(--paper);border:1px solid var(--line);padding:1.5rem;display:grid;gap:.6rem;align-content:start}
+  .pcard h3{font-size:1.3rem}
+  .pcard p{color:var(--muted);font-size:.98rem}
+  .pcard .ico{font-family:var(--ff-display);font-style:italic;font-size:1.6rem;color:var(--sage)}
+  @media (max-width:760px){.planners .grid{grid-template-columns:1fr}}
+
+  /* enquire */
+  .enquire{background:var(--paper);border-top:1px solid var(--line)}
+  .enq-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:3rem}
+  .enq-copy{display:grid;gap:1rem;align-content:start}
+  .enq-copy p{color:var(--muted)}
+  .contact{display:grid;gap:.4rem;font-size:.98rem;border-top:1px solid var(--line);padding-top:1rem}
+  .contact b{color:var(--charcoal)}
+  form{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  .field{display:grid;gap:.35rem}
+  .field.full{grid-column:1/-1}
+  label{font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--kraft-deep)}
+  input,select,textarea{font:inherit;font-size:1rem;padding:.75rem .9rem;border:1px solid var(--line);border-radius:4px;background:#fff;color:var(--ink);width:100%}
+  textarea{min-height:120px;resize:vertical}
+  form .btn{grid-column:1/-1;justify-self:start;cursor:pointer}
+  .form-note{grid-column:1/-1;font-size:.85rem;color:var(--muted)}
+  @media (max-width:880px){.enq-grid{grid-template-columns:1fr}}
+  @media (max-width:560px){form{grid-template-columns:1fr}.field.full{grid-column:auto}form .btn,.form-note{grid-column:auto}}
+
+  footer{padding-block:2.5rem;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+  footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;align-items:center}
+  footer .hand{font-size:1.4rem}
+
+  /* payments */
+  .pay{background:var(--paper);border-top:1px solid var(--line)}
+  .pay-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem}
+  .paycard{background:var(--ground);border:1px solid var(--line);padding:1.25rem 1.2rem;display:grid;gap:.5rem;align-content:start;border-radius:4px}
+  .paycard .ico{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:.8rem;letter-spacing:.04em;background:var(--kraft-pale);color:var(--charcoal);border:1px solid var(--kraft)}
+  .paycard.btc .ico{background:#f7931a;color:#fff;border-color:#d97c0a;font-size:1.3rem;font-family:var(--ff-display)}
+  .paycard h3{font-size:1.15rem}
+  .paycard p{color:var(--muted);font-size:.92rem}
+  .paycard code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.82rem;background:#fff;border:1px dashed var(--line);padding:.2rem .45rem;border-radius:3px;color:var(--ink);word-break:break-all}
+  .btcmap{margin-top:1.75rem;display:flex;flex-wrap:wrap;gap:1rem 1.5rem;align-items:center;justify-content:space-between;background:var(--charcoal);color:#e9e2d8;padding:1.25rem 1.5rem;border-radius:4px}
+  .btcmap b{color:#fff;font-family:var(--ff-display);font-size:1.2rem;font-weight:500}
+  .btcmap p{color:#cfc5b8;font-size:.95rem;max-width:60ch}
+  .btcmap .btn{background:#f7931a;color:#1a1a1a;white-space:nowrap}
+  .btcmap .btn:hover{background:#ffa53a}
+  @media (max-width:1000px){.pay-grid{grid-template-columns:repeat(3,1fr)}}
+  @media (max-width:640px){.pay-grid{grid-template-columns:1fr 1fr}}
+  @media (max-width:420px){.pay-grid{grid-template-columns:1fr}}
+
+  /* socials */
+  .socials{display:flex;flex-wrap:wrap;gap:.5rem}
+  .socials a{display:inline-flex;align-items:center;gap:.4rem;text-decoration:none;color:var(--charcoal);border:1px solid var(--line);background:var(--ground);padding:.4rem .8rem;border-radius:999px;font-size:.88rem;font-weight:700}
+  .socials a:hover{border-color:var(--fig);color:var(--fig)}
+  .socials a.nostr{border-color:#8e5bd9;color:#5b2ea6}
+  .socials a.nostr:hover{background:#f3ecfb}
+  .socials svg{width:15px;height:15px;fill:currentColor}
+  .socials svg.nostrich{width:19px;height:19px}
+  footer .socials a{background:transparent}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Site">
+  <div class="wrap">
+    <a class="brand" href="#top">Holy Sheet! <em>GRAZING</em></a>
+    <ul>
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#sheets">The sheets</a></li>
+      <li><a href="#menu">Provisions</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#planners">For planners</a></li>
+      <li><a href="#pay">Ways to pay</a></li>
+      <li><a href="#enquire">Enquire</a></li>
+    </ul>
+    <a class="btn btn-fig" href="#enquire">Book a sheet</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <span class="hand l">Graze any<br>occasion ♡</span>
+  <span class="hand r">Good food brings<br>people together</span>
+  <div class="wrap">
+    <div class="hero-logo"><img src="img/logo.jpg" alt="Holy Sheet! Grazing. The brand name spelled out in cheese, cured meats, figs, grapes and crackers on a long roll of brown Kraft paper" width="1600" height="498"></div>
+    <h1>Curated flat-lay grazing and feast tables, built straight onto the paper.</h1>
+    <p class="lede">We arrive at your venue, unroll a continuous sheet of food-grade Kraft paper and style an abundant, premium spread directly on the surface. No boards. No props. No washing up. When it's over, you roll it up and recycle it.</p>
+    <div class="cta">
+      <a class="btn btn-fig" href="#sheets">See the sheets</a>
+      <a class="btn btn-ghost" href="#planners">Event planners, start here</a>
+    </div>
+  </div>
+</header>
+
+<div class="band" aria-label="Highlights">
+  <div class="wrap">
+    <span>Mornington Peninsula and surrounds</span>
+    <span>15 to 60+ guests</span>
+    <span>Five-minute cleanup</span>
+    <span>Local artisan produce</span>
+  </div>
+</div>
+
+<section id="how">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">How it works</span>
+      <h2>We unroll. We style. You feast.</h2>
+      <p>Three steps, in this order, every single time. The whole thing is designed so the only work left for you is eating.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <span class="n">1. Unroll</span>
+        <h3>The base sheet goes down</h3>
+        <p>A continuous roll of heavy-duty, unbleached Kraft paper runs the length of your table, then gets our ink stamp live on the day, in front of your guests.</p>
+      </div>
+      <div class="step">
+        <span class="n">2. Style</span>
+        <h3>We build the spread on the spot</h3>
+        <p>Cheeses, cured meats, figs, honeycomb, olives and dips are layered into a flowing landscape, with eucalyptus and rosemary threaded through it. The paper is the platter.</p>
+      </div>
+      <div class="step">
+        <span class="n">3. Feast</span>
+        <h3>Then it all disappears</h3>
+        <p>Guests graze straight from the sheet. Afterwards there's not a single board to wash: roll up the paper, drop it in the recycling, done in five minutes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sheets" id="sheets">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Choose your size</span>
+      <h2>The sheets</h2>
+      <p>Every sheet is 60 cm wide. What changes is how far down the table it runs, and how much lands on it.</p>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <figure><img src="img/half.jpg" alt="The Half Sheet: a one metre grazing spread on Kraft paper across a kitchen bench" loading="lazy"></figure>
+        <div class="body">
+          <span class="guests">Up to 15 guests</span>
+          <h3>The Half Sheet</h3>
+          <p class="price">$550<small>AUD</small></p>
+          <p>Perfect for intimate nights, bridal showers and small birthdays.</p>
+          <dl class="spec">
+            <dt>Cut</dt><dd>60 cm × 100 cm (1 metre)</dd>
+            <dt>Table</dt><dd>A standard kitchen island bench or coffee table.</dd>
+            <dt>Holds</dt><dd>3 to 4 cheeses, 3 cured meats, 2 dips and a lush perimeter of fruit and crackers.</dd>
+          </dl>
+        </div>
+      </article>
+      <article class="card hero-card">
+        <figure><img src="img/full.jpg" alt="The Full Sheet: a two metre grazing runner down the centre of a dining table" loading="lazy"></figure>
+        <div class="body">
+          <span class="tag">Most popular</span>
+          <span class="guests">Up to 30 guests</span>
+          <h3>The Full Sheet</h3>
+          <p class="price">$1,000<small>AUD</small></p>
+          <p>The ultimate birthday, engagement or baby shower layout.</p>
+          <dl class="spec">
+            <dt>Cut</dt><dd>60 cm × 200 cm (2 metres)</dd>
+            <dt>Table</dt><dd>Runs down the centre of a 6 to 8 seat dining table as a runner.</dd>
+            <dt>Holds</dt><dd>5 to 6 cheeses, 4 meats, 3 to 4 bowls of dips and olives, and long rivers of crackers and grapes.</dd>
+          </dl>
+        </div>
+      </article>
+      <article class="card">
+        <figure><img src="img/roll.jpg" alt="The Whole Damn Roll: a four metre plus grazing table with candles and greenery at an event" loading="lazy"></figure>
+        <div class="body">
+          <span class="guests">50 to 60+ guests</span>
+          <h3>The Whole Damn Roll</h3>
+          <p class="price">from $1,800<small>AUD</small></p>
+          <p>A massive, show-stopping corporate or wedding feast table.</p>
+          <dl class="spec">
+            <dt>Cut</dt><dd>60 cm × 400 to 500 cm, or cut to your venue table</dd>
+            <dt>Table</dt><dd>Trestle tables, banquet tables and long bar counters.</dd>
+            <dt>Holds</dt><dd>A full flat-lay grazing table with multi-level styling, priced as a premium on-site package.</dd>
+          </dl>
+        </div>
+      </article>
+    </div>
+    <p class="note">Prices include the sheet, all provisions, on-site styling and travel within the Peninsula. Larger guest counts, dietary alternatives and venue travel outside the area are quoted on request.</p>
+  </div>
+</section>
+
+<section id="menu">
+  <div class="wrap">
+    <div class="menu-wrap">
+      <div class="kraft-sheet">
+        <div class="stamp">Holy Sheet!<br>Grazing</div>
+        <h3>The Provisions</h3>
+        <p class="sub">Curated flat-lay grazing and feast tables</p>
+        <div class="base"><b>The Base Sheet.</b> Every table starts with our signature continuous roll of food-grade Kraft paper, stamped with our custom ink mark and styled with fresh seasonal eucalyptus, rosemary sprigs and artisanal crackers.</div>
+        <div class="prov">
+          <div><b>The Big Cheeses</b><span>Triple cream brie, aged vintage cheddar, and a sharp blue or a creamy goat's cheese log.</span></div>
+          <div><b>The Cured Goods</b><span>Prosciutto ribbons, mild salami wheels and peppery twirled mortadella.</span></div>
+          <div><b>The Earthy Bits</b><span>Marinated Sicilian olives, fire-roasted capsicum and house-made beetroot hummus.</span></div>
+          <div><b>The Sweet Treats</b><span>Fresh seasonal figs, dark chocolate shards, raw native honeycomb and local berries.</span></div>
+        </div>
+      </div>
+      <div class="menu-side">
+        <span class="eyebrow">What lands on the paper</span>
+        <h2>Cheeky name. Serious food.</h2>
+        <p>Every sheet is stacked with produce sourced as close to the Peninsula as we can get it: artisan local cheeses, properly cured meats, fruit that's in season this week, and dips we make ourselves.</p>
+        <p>The menu above is our signature spread. Swap in a favourite, drop something out, or ask us to lean sweeter, saltier or greener. The layout adapts to the sheet, so nothing looks sparse.</p>
+        <div class="diet"><b>Dietaries welcome.</b> Vegetarian, gluten-free and nut-free sections can be styled as their own clearly marked zone on the sheet, so no one has to ask what's safe.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div class="copy">
+      <span class="eyebrow">About us</span>
+      <h2>Born from a simple belief.</h2>
+      <p>The best parties don't happen around stiff, formal plates. They happen when everyone gathers around one table, rolls up their sleeves and digs in together.</p>
+      <p>We specialise in premium flat-lay grazing. That means no bulky rented props, no heavy wooden boards to wash and absolutely zero fuss for you. We arrive at your venue, unroll our signature heavy-duty brown paper and build a breathtaking, edible work of art directly on the surface.</p>
+      <p>When the party's over? You literally roll up the paper and toss it straight into the recycling. No cleanup. No dishwashing. Just a full belly, amazing memories and a room full of happy guests.</p>
+      <p class="punch">Holy sheet, right?</p>
+    </div>
+    <figure>
+      <img src="img/logo-illustrated.jpg" alt="Illustrated Holy Sheet! Grazing logo with letters drawn as cheese, salami, olives and crackers on a paper scroll">
+      <figcaption>Our stamp, coming to a table near you</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="planners" id="planners">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">For event planners and venues</span>
+      <h2>Spectacular food, zero logistics.</h2>
+      <p>Your clients deserve event food that looks extraordinary and doesn't create a headache for your team. Here's why planners on the Peninsula are adding us to their preferred supplier list.</p>
+    </div>
+    <div class="grid">
+      <div class="pcard">
+        <span class="ico">Nothing to return</span>
+        <h3>Zero equipment friction</h3>
+        <p>No timber boards, no rented props to track, count or chase after the event. We bring the roll, the food and the styling. That's the whole inventory.</p>
+      </div>
+      <div class="pcard">
+        <span class="ico">Five minutes</span>
+        <h3>The cleanup your venue crew will love</h3>
+        <p>No platters to wash and no bump-out drama. Roll the paper up, drop it in the recycling, wipe the table. Your staff are off the clock sooner.</p>
+      </div>
+      <div class="pcard">
+        <span class="ico">Peninsula premium</span>
+        <h3>Food that holds up to the name</h3>
+        <p>Artisan local cheeses, cured meats, fresh figs, honeycomb and house-made dips, styled to fill any table shape your venue throws at us.</p>
+      </div>
+    </div>
+    <p style="margin-top:1.75rem;color:var(--muted)">Want a digital service package or a mini sample platter box dropped to your team? <a href="#enquire">Ask below</a> and we'll sort a five-minute chat.</p>
+  </div>
+</section>
+
+<section class="pay" id="pay">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Ways to pay</span>
+      <h2>Pay however suits you.</h2>
+      <p>A deposit locks in your date and the balance is due the week of the event. We take the usual cards and wallets, and we're proud to be a Bitcoin-accepting business on the Peninsula.</p>
+    </div>
+    <div class="pay-grid">
+      <div class="paycard">
+        <span class="ico">CARD</span>
+        <h3>Visa, Mastercard, Amex</h3>
+        <p>Tap on the day or pay a secure card link we send with your invoice.</p>
+      </div>
+      <div class="paycard">
+        <span class="ico">PP</span>
+        <h3>PayPal</h3>
+        <p>Pay the invoice link, or send to our PayPal.Me.</p>
+        <code>paypal.me/holysheetgrazing</code>
+      </div>
+      <div class="paycard">
+        <span class="ico">R</span>
+        <h3>Revolut</h3>
+        <p>Instant transfer in AUD to our Revolut tag.</p>
+        <code>@holysheetgrazing</code>
+      </div>
+      <div class="paycard btc">
+        <span class="ico">₿</span>
+        <h3>Bitcoin</h3>
+        <p>Lightning for instant settlement, on-chain for larger bookings. Priced in AUD at the time you pay. Zap us on Nostr with the same address.</p>
+        <code>holysheet@coinos.io</code>
+      </div>
+      <div class="paycard">
+        <span class="ico">BANK</span>
+        <h3>Bank transfer / PayID</h3>
+        <p>Direct deposit or PayID to the email on your invoice. No fees either way.</p>
+      </div>
+    </div>
+    <div class="btcmap">
+      <div>
+        <b>Find us on BTC Map</b>
+        <p>Holy Sheet! is listed as a Bitcoin-accepting merchant on BTC Map, the open map of businesses that take sats. Lightning and on-chain both welcome.</p>
+      </div>
+      <a class="btn" href="https://btcmap.org/map" target="_blank" rel="noopener">Open BTC Map</a>
+    </div>
+  </div>
+</section>
+
+<section class="enquire" id="enquire">
+  <div class="wrap enq-grid">
+    <div class="enq-copy">
+      <span class="eyebrow">Enquire</span>
+      <h2>Tell us about your table.</h2>
+      <p>Send through the date, the venue and a rough headcount and we'll come back with a quote and a suggested sheet size, usually within a day.</p>
+      <div class="contact">
+        <span><b>Founder</b> Natasha Hendricks</span>
+        <span><b>Email</b> <a href="mailto:natasha.hendricks83@gmail.com">natasha.hendricks83@gmail.com</a></span>
+        <span><b>Phone</b> [Natasha's Phone Number]</span>
+        <span><b>Nostr</b> holysheet@coinos.io</span>
+        <span><b>Service area</b> Mornington Peninsula, Victoria, and surrounds</span>
+      </div>
+      <div class="socials" aria-label="Social links">
+        <a class="nostr" href="https://njump.me/holysheet@coinos.io" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" class="nostrich"><path d="M6.2 13.2c-1.6-.4-3.2.6-3.4 2.1-.3 1.9 1.3 3.5 3.9 3.9 2.4.3 5.2-.6 6.6-2.5.9-1.2.8-2.9-.4-3.7-1.8-1.2-4.6-.6-6.7.2Z"/><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" d="M12.6 12.4c1.6-1.3 2.4-3.3 2.6-5.6"/><path d="M15.3 3.1c1.3 0 2.3 1 2.3 2.2 0 1.3-1 2.3-2.3 2.3-1.2 0-2.2-1-2.2-2.3 0-1.2 1-2.2 2.2-2.2Z"/><path d="M17.3 4.7l3.4.9c.4.1.4.6 0 .7l-3.4.8Z"/><circle cx="15.6" cy="5" r=".6" fill="#f3ecfb"/><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M7.5 19.2l-.6 2.4M6.9 21.6h-1.6M10.3 19.2l.6 2.4M10.9 21.6h1.6"/></svg>Nostr</a>
+        <a href="https://instagram.com/holysheetgrazing" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9Zm0 2a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Zm5.2-3a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4Z"/></svg>Instagram</a>
+        <a href="https://facebook.com/holysheetgrazing" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.6 1.6-1.6h1.7V4.3c-.3 0-1.3-.1-2.5-.1-2.5 0-4.1 1.5-4.1 4.2v2.4H7.4V14h2.8v8h3.3Z"/></svg>Facebook</a>
+        <a href="https://x.com/holysheetgraze" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 3h3l-7 8 8.2 10h-6.4l-5-6.5L4.5 21h-3l7.5-8.6L1.2 3h6.5l4.5 6 5.3-6Zm-1 16h1.7L7.6 4.8H5.8L16.5 19Z"/></svg>X</a>
+      </div>
+      <p class="hand" style="font-size:1.6rem">The party is on the table.</p>
+    </div>
+    <form id="enquiry-form" action="mailto:natasha.hendricks83@gmail.com" method="post" enctype="text/plain">
+      <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
+      <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+      <div class="field"><label for="f-date">Event date</label><input id="f-date" name="event_date" type="date"></div>
+      <div class="field"><label for="f-guests">Guests</label><input id="f-guests" name="guests" type="number" min="1" max="500" placeholder="30"></div>
+      <div class="field"><label for="f-size">Sheet size</label>
+        <select id="f-size" name="sheet">
+          <option>Not sure yet, help me choose</option>
+          <option>The Half Sheet (up to 15)</option>
+          <option>The Full Sheet (up to 30)</option>
+          <option>The Whole Damn Roll (50+)</option>
+        </select></div>
+      <div class="field"><label for="f-pay">How you'd like to pay</label>
+        <select id="f-pay" name="payment">
+          <option>Card (Visa, Mastercard, Amex)</option><option>PayPal</option><option>Revolut</option><option>Bitcoin (Lightning or on-chain)</option><option>Bank transfer / PayID</option><option>Not sure yet</option>
+        </select></div>
+      <div class="field"><label for="f-type">Occasion</label>
+        <select id="f-type" name="occasion">
+          <option>Birthday</option><option>Engagement</option><option>Bridal or baby shower</option><option>Wedding</option><option>Corporate</option><option>Something else</option>
+        </select></div>
+      <div class="field full"><label for="f-venue">Venue and suburb</label><input id="f-venue" name="venue" type="text" placeholder="e.g. Home in Rye, or venue name"></div>
+      <div class="field full"><label for="f-notes">Anything else</label><textarea id="f-notes" name="notes" placeholder="Dietaries, table shape, the vibe you're after..."></textarea></div>
+      <button class="btn btn-fig" type="submit">Send enquiry</button>
+      <p class="form-note">Sending opens your email app with everything filled in, addressed to Natasha. Prefer to call or message? Use the details to the left.</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Holy Sheet! Grazing · Founded by Natasha Hendricks · Mornington Peninsula, Victoria</span>
+    <div class="socials" aria-label="Social links">
+        <a class="nostr" href="https://njump.me/holysheet@coinos.io" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" class="nostrich"><path d="M6.2 13.2c-1.6-.4-3.2.6-3.4 2.1-.3 1.9 1.3 3.5 3.9 3.9 2.4.3 5.2-.6 6.6-2.5.9-1.2.8-2.9-.4-3.7-1.8-1.2-4.6-.6-6.7.2Z"/><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" d="M12.6 12.4c1.6-1.3 2.4-3.3 2.6-5.6"/><path d="M15.3 3.1c1.3 0 2.3 1 2.3 2.2 0 1.3-1 2.3-2.3 2.3-1.2 0-2.2-1-2.2-2.3 0-1.2 1-2.2 2.2-2.2Z"/><path d="M17.3 4.7l3.4.9c.4.1.4.6 0 .7l-3.4.8Z"/><circle cx="15.6" cy="5" r=".6" fill="#f3ecfb"/><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M7.5 19.2l-.6 2.4M6.9 21.6h-1.6M10.3 19.2l.6 2.4M10.9 21.6h1.6"/></svg>Nostr</a>
+        <a href="https://instagram.com/holysheetgrazing" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9Zm0 2a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Zm5.2-3a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4Z"/></svg>Instagram</a>
+        <a href="https://facebook.com/holysheetgrazing" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.6 1.6-1.6h1.7V4.3c-.3 0-1.3-.1-2.5-.1-2.5 0-4.1 1.5-4.1 4.2v2.4H7.4V14h2.8v8h3.3Z"/></svg>Facebook</a>
+        <a href="https://x.com/holysheetgraze" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 3h3l-7 8 8.2 10h-6.4l-5-6.5L4.5 21h-3l7.5-8.6L1.2 3h6.5l4.5 6 5.3-6Zm-1 16h1.7L7.6 4.8H5.8L16.5 19Z"/></svg>X</a>
+      </div>
+    <span class="hand">Holy Sheet! That's a good looking board.</span>
+  </div>
+</footer>
+<script>
+  (function(){
+    var f=document.getElementById('enquiry-form'); if(!f) return;
+    f.addEventListener('submit',function(e){
+      e.preventDefault();
+      var v=function(id){var el=document.getElementById(id);return el?el.value.trim():''};
+      var lines=[
+        'Name: '+v('f-name'),
+        'Email: '+v('f-email'),
+        'Event date: '+v('f-date'),
+        'Guests: '+v('f-guests'),
+        'Sheet size: '+v('f-size'),
+        'Occasion: '+v('f-type'),
+        'Preferred payment: '+v('f-pay'),
+        'Venue and suburb: '+v('f-venue'),
+        '',
+        'Notes:',
+        v('f-notes')
+      ];
+      var subject='Holy Sheet! enquiry from '+(v('f-name')||'the website');
+      window.location.href='mailto:natasha.hendricks83@gmail.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(lines.join('\n'));
+    });
+  })();
+</script>
+</body></html>
