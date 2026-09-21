@@ -67,7 +67,7 @@
   .hero{padding-block:clamp(2rem,6vw,4.5rem) clamp(2.5rem,6vw,5rem);position:relative;overflow:hidden}
   .hero .wrap{display:grid;gap:1.75rem;justify-items:center;text-align:center}
   .hero-logo{width:min(100%,900px)}
-  .hero-logo img{width:100%;height:auto;mix-blend-mode:multiply}
+  .hero-logo img{width:100%;height:auto}
   .hero h1{font-size:clamp(1.6rem,3.2vw,2.4rem);font-weight:400;font-style:italic;max-width:24ch;color:var(--ink)}
   .hero .lede{max-width:56ch;font-size:1.1rem;color:var(--muted)}
   .hero .cta{display:flex;gap:.75rem;flex-wrap:wrap;justify-content:center}
@@ -137,8 +137,8 @@
   .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
   .about .copy{display:grid;gap:1.1rem;font-size:1.08rem;max-width:56ch}
   .about .copy .punch{font-family:var(--ff-display);font-style:italic;font-size:1.6rem;color:var(--kraft)}
-  .about figure{margin:0;background:#fff;padding:1rem;transform:rotate(-1.5deg);box-shadow:0 20px 50px -20px rgba(0,0,0,.6)}
-  .about figcaption{font-family:var(--ff-hand);font-size:1.3rem;color:var(--charcoal);text-align:center;padding-top:.6rem}
+  .about figure{margin:0;transform:rotate(-1.5deg);filter:drop-shadow(0 18px 30px rgba(0,0,0,.45))}
+  .about figcaption{font-family:var(--ff-hand);font-size:1.4rem;color:var(--kraft);text-align:center;padding-top:.8rem}
   @media (max-width:880px){.about-grid{grid-template-columns:1fr}}
 
   /* planners */
@@ -233,7 +233,7 @@
   <span class="hand l">Graze any<br>occasion ♡</span>
   <span class="hand r">Good food brings<br>people together</span>
   <div class="wrap">
-    <div class="hero-logo"><img src="img/logo.jpg" alt="Holy Sheet! Grazing. The brand name spelled out in cheese, cured meats, figs, grapes and crackers on a long roll of brown Kraft paper" width="1600" height="498"></div>
+    <div class="hero-logo"><img src="img/logo.png" alt="Holy Sheet! Grazing. The brand name spelled out in cheese, cured meats, figs, grapes and crackers on a long roll of brown Kraft paper" width="1600" height="498"></div>
     <h1>Curated flat-lay grazing and feast tables, built straight onto the paper.</h1>
     <p class="lede">We arrive at your venue, unroll a continuous sheet of food-grade Kraft paper and style an abundant, premium spread directly on the surface. No boards. No props. No washing up. When it's over, you roll it up and recycle it.</p>
     <div class="cta">
@@ -372,7 +372,7 @@
       <p class="punch">Holy sheet, right?</p>
     </div>
     <figure>
-      <img src="img/logo-illustrated.jpg" alt="Illustrated Holy Sheet! Grazing logo with letters drawn as cheese, salami, olives and crackers on a paper scroll">
+      <img src="img/logo-illustrated-dark.png" alt="Illustrated Holy Sheet! Grazing logo with letters drawn as cheese, salami, olives and crackers on a paper scroll">
       <figcaption>Our stamp, coming to a table near you</figcaption>
     </figure>
   </div>
