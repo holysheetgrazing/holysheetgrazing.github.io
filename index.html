@@ -169,8 +169,13 @@
   .pay{background:var(--paper);border-top:1px solid var(--line)}
   .pay-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem}
   .paycard{background:var(--ground);border:1px solid var(--line);padding:1.25rem 1.2rem;display:grid;gap:.5rem;align-content:start;border-radius:4px}
-  .paycard .ico{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:.8rem;letter-spacing:.04em;background:var(--kraft-pale);color:var(--charcoal);border:1px solid var(--kraft)}
-  .paycard.btc .ico{background:#f7931a;color:#fff;border-color:#d97c0a;font-size:1.3rem;font-family:var(--ff-display)}
+  .paycard .ico{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:1.15rem;font-family:var(--ff-display);color:#fff;border:1px solid transparent}
+  .paycard .ico svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .paycard.cc .ico{background:#1a1f71;border-color:#12154f}
+  .paycard.pp .ico{background:#003087;border-color:#00256b}
+  .paycard.rev .ico{background:#191c1f;border-color:#000}
+  .paycard.btc .ico{background:#f7931a;border-color:#d97c0a;font-size:1.3rem}
+  .paycard.bank .ico{background:#2f7d5b;border-color:#246346}
   .paycard h3{font-size:1.15rem}
   .paycard p{color:var(--muted);font-size:.92rem}
   .paycard code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.82rem;background:#fff;border:1px dashed var(--line);padding:.2rem .45rem;border-radius:3px;color:var(--ink);word-break:break-all}
@@ -187,11 +192,17 @@
   .socials{display:flex;flex-wrap:wrap;gap:.5rem}
   .socials a{display:inline-flex;align-items:center;gap:.4rem;text-decoration:none;color:var(--charcoal);border:1px solid var(--line);background:var(--ground);padding:.4rem .8rem;border-radius:999px;font-size:.88rem;font-weight:700}
   .socials a:hover{border-color:var(--fig);color:var(--fig)}
-  .socials a.nostr{border-color:#8e5bd9;color:#5b2ea6}
-  .socials a.nostr:hover{background:#f3ecfb}
+  .socials a.nostr{border-color:#8e5bd9;color:#5b2ea6;background:#f3ecfb}
+  .socials a.nostr:hover{background:#5b2ea6;color:#fff;border-color:#5b2ea6}
+  .socials a.ig{border-color:#e1306c;color:#c1275a;background:#fdeef3}
+  .socials a.ig:hover{background:linear-gradient(45deg,#f9a03f,#e1306c 55%,#833ab4);color:#fff;border-color:#e1306c}
+  .socials a.fb{border-color:#1877f2;color:#1462c9;background:#e9f1fd}
+  .socials a.fb:hover{background:#1877f2;color:#fff}
+  .socials a.x{border-color:#111;color:#111;background:#ececec}
+  .socials a.x:hover{background:#111;color:#fff}
   .socials svg{width:15px;height:15px;fill:currentColor}
   .socials svg.nostrich{width:19px;height:19px}
-  footer .socials a{background:transparent}
+  
 </style>
 </head>
 <body>
@@ -397,31 +408,31 @@
       <p>A deposit locks in your date and the balance is due the week of the event. We take the usual cards and wallets, and we're proud to be a Bitcoin-accepting business on the Peninsula.</p>
     </div>
     <div class="pay-grid">
-      <div class="paycard">
-        <span class="ico">CARD</span>
+      <div class="paycard cc">
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 9.5h19M6 15h4"/></svg></span>
         <h3>Visa, Mastercard, Amex</h3>
         <p>Tap on the day or pay a secure card link we send with your invoice.</p>
       </div>
-      <div class="paycard">
-        <span class="ico">PP</span>
+      <div class="paycard pp">
+        <span class="ico" aria-hidden="true">P</span>
         <h3>PayPal</h3>
         <p>Pay the invoice link, or send to our PayPal.Me.</p>
         <code>paypal.me/holysheetgrazing</code>
       </div>
-      <div class="paycard">
-        <span class="ico">R</span>
+      <div class="paycard rev">
+        <span class="ico" aria-hidden="true">R</span>
         <h3>Revolut</h3>
         <p>Instant transfer in AUD to our Revolut tag.</p>
         <code>@holysheetgrazing</code>
       </div>
       <div class="paycard btc">
-        <span class="ico">₿</span>
+        <span class="ico" aria-hidden="true">₿</span>
         <h3>Bitcoin</h3>
         <p>Lightning for instant settlement, on-chain for larger bookings. Priced in AUD at the time you pay. Zap us on Nostr with the same address.</p>
         <code>holysheet@coinos.io</code>
       </div>
-      <div class="paycard">
-        <span class="ico">BANK</span>
+      <div class="paycard bank">
+        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 9.5 12 4l9 5.5H3ZM5 10v7M9.5 10v7M14.5 10v7M19 10v7M3 19.5h18"/></svg></span>
         <h3>Bank transfer / PayID</h3>
         <p>Direct deposit or PayID to the email on your invoice. No fees either way.</p>
       </div>
@@ -429,9 +440,9 @@
     <div class="btcmap">
       <div>
         <b>Find us on BTC Map</b>
-        <p>Holy Sheet! is listed as a Bitcoin-accepting merchant on BTC Map, the open map of businesses that take sats. Lightning and on-chain both welcome.</p>
+        <p>Holy Sheet! is listed as a Bitcoin-accepting merchant on BTC Map, the open map of businesses that take sats. Open it centred on the Mornington Peninsula to see us and every other place nearby that takes Bitcoin.</p>
       </div>
-      <a class="btn" href="https://btcmap.org/map" target="_blank" rel="noopener">Open BTC Map</a>
+      <a class="btn" href="https://btcmap.org/map#11/-38.33/145.05" target="_blank" rel="noopener">Open BTC Map on the Peninsula</a>
     </div>
   </div>
 </section>
@@ -443,21 +454,19 @@
       <h2>Tell us about your table.</h2>
       <p>Send through the date, the venue and a rough headcount and we'll come back with a quote and a suggested sheet size, usually within a day.</p>
       <div class="contact">
-        <span><b>Founder</b> Natasha Hendricks</span>
-        <span><b>Email</b> <a href="mailto:natasha.hendricks83@gmail.com">natasha.hendricks83@gmail.com</a></span>
-        <span><b>Phone</b> [Natasha's Phone Number]</span>
-        <span><b>Nostr</b> holysheet@coinos.io</span>
+        <span><b>Founder</b> Natasha</span>
+        <span><b>Phone</b> <a href="tel:+61355504638">(03) 5550 4638</a></span>
         <span><b>Service area</b> Mornington Peninsula, Victoria, and surrounds</span>
       </div>
       <div class="socials" aria-label="Social links">
         <a class="nostr" href="https://njump.me/holysheet@coinos.io" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" class="nostrich"><path d="M6.2 13.2c-1.6-.4-3.2.6-3.4 2.1-.3 1.9 1.3 3.5 3.9 3.9 2.4.3 5.2-.6 6.6-2.5.9-1.2.8-2.9-.4-3.7-1.8-1.2-4.6-.6-6.7.2Z"/><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" d="M12.6 12.4c1.6-1.3 2.4-3.3 2.6-5.6"/><path d="M15.3 3.1c1.3 0 2.3 1 2.3 2.2 0 1.3-1 2.3-2.3 2.3-1.2 0-2.2-1-2.2-2.3 0-1.2 1-2.2 2.2-2.2Z"/><path d="M17.3 4.7l3.4.9c.4.1.4.6 0 .7l-3.4.8Z"/><circle cx="15.6" cy="5" r=".6" fill="#f3ecfb"/><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M7.5 19.2l-.6 2.4M6.9 21.6h-1.6M10.3 19.2l.6 2.4M10.9 21.6h1.6"/></svg>Nostr</a>
-        <a href="https://instagram.com/holysheetgrazing" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9Zm0 2a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Zm5.2-3a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4Z"/></svg>Instagram</a>
-        <a href="https://facebook.com/holysheetgrazing" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.6 1.6-1.6h1.7V4.3c-.3 0-1.3-.1-2.5-.1-2.5 0-4.1 1.5-4.1 4.2v2.4H7.4V14h2.8v8h3.3Z"/></svg>Facebook</a>
-        <a href="https://x.com/holysheetgraze" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 3h3l-7 8 8.2 10h-6.4l-5-6.5L4.5 21h-3l7.5-8.6L1.2 3h6.5l4.5 6 5.3-6Zm-1 16h1.7L7.6 4.8H5.8L16.5 19Z"/></svg>X</a>
+        <a class="ig" href="https://instagram.com/holysheetgrazing" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9Zm0 2a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Zm5.2-3a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4Z"/></svg>Instagram</a>
+        <a class="fb" href="https://facebook.com/holysheetgrazing" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.6 1.6-1.6h1.7V4.3c-.3 0-1.3-.1-2.5-.1-2.5 0-4.1 1.5-4.1 4.2v2.4H7.4V14h2.8v8h3.3Z"/></svg>Facebook</a>
+        <a class="x" href="https://x.com/holysheetgraze" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 3h3l-7 8 8.2 10h-6.4l-5-6.5L4.5 21h-3l7.5-8.6L1.2 3h6.5l4.5 6 5.3-6Zm-1 16h1.7L7.6 4.8H5.8L16.5 19Z"/></svg>X</a>
       </div>
       <p class="hand" style="font-size:1.6rem">The party is on the table.</p>
     </div>
-    <form id="enquiry-form" action="mailto:natasha.hendricks83@gmail.com" method="post" enctype="text/plain">
+    <form id="enquiry-form" action="#" method="post">
       <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
       <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
       <div class="field"><label for="f-date">Event date</label><input id="f-date" name="event_date" type="date"></div>
@@ -480,19 +489,19 @@
       <div class="field full"><label for="f-venue">Venue and suburb</label><input id="f-venue" name="venue" type="text" placeholder="e.g. Home in Rye, or venue name"></div>
       <div class="field full"><label for="f-notes">Anything else</label><textarea id="f-notes" name="notes" placeholder="Dietaries, table shape, the vibe you're after..."></textarea></div>
       <button class="btn btn-fig" type="submit">Send enquiry</button>
-      <p class="form-note">Sending opens your email app with everything filled in, addressed to Natasha. Prefer to call or message? Use the details to the left.</p>
+      <p class="form-note">Sending opens your email app with everything filled in and addressed to us. Prefer to call or message? Use the number to the left.</p>
     </form>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <span>© 2026 Holy Sheet! Grazing · Founded by Natasha Hendricks · Mornington Peninsula, Victoria</span>
+    <span>© 2026 Holy Sheet! Grazing · Founded by Natasha · Mornington Peninsula, Victoria</span>
     <div class="socials" aria-label="Social links">
         <a class="nostr" href="https://njump.me/holysheet@coinos.io" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" class="nostrich"><path d="M6.2 13.2c-1.6-.4-3.2.6-3.4 2.1-.3 1.9 1.3 3.5 3.9 3.9 2.4.3 5.2-.6 6.6-2.5.9-1.2.8-2.9-.4-3.7-1.8-1.2-4.6-.6-6.7.2Z"/><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" d="M12.6 12.4c1.6-1.3 2.4-3.3 2.6-5.6"/><path d="M15.3 3.1c1.3 0 2.3 1 2.3 2.2 0 1.3-1 2.3-2.3 2.3-1.2 0-2.2-1-2.2-2.3 0-1.2 1-2.2 2.2-2.2Z"/><path d="M17.3 4.7l3.4.9c.4.1.4.6 0 .7l-3.4.8Z"/><circle cx="15.6" cy="5" r=".6" fill="#f3ecfb"/><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M7.5 19.2l-.6 2.4M6.9 21.6h-1.6M10.3 19.2l.6 2.4M10.9 21.6h1.6"/></svg>Nostr</a>
-        <a href="https://instagram.com/holysheetgrazing" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9Zm0 2a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Zm5.2-3a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4Z"/></svg>Instagram</a>
-        <a href="https://facebook.com/holysheetgrazing" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.6 1.6-1.6h1.7V4.3c-.3 0-1.3-.1-2.5-.1-2.5 0-4.1 1.5-4.1 4.2v2.4H7.4V14h2.8v8h3.3Z"/></svg>Facebook</a>
-        <a href="https://x.com/holysheetgraze" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 3h3l-7 8 8.2 10h-6.4l-5-6.5L4.5 21h-3l7.5-8.6L1.2 3h6.5l4.5 6 5.3-6Zm-1 16h1.7L7.6 4.8H5.8L16.5 19Z"/></svg>X</a>
+        <a class="ig" href="https://instagram.com/holysheetgrazing" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9Zm0 2a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Zm5.2-3a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4Z"/></svg>Instagram</a>
+        <a class="fb" href="https://facebook.com/holysheetgrazing" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.6 1.6-1.6h1.7V4.3c-.3 0-1.3-.1-2.5-.1-2.5 0-4.1 1.5-4.1 4.2v2.4H7.4V14h2.8v8h3.3Z"/></svg>Facebook</a>
+        <a class="x" href="https://x.com/holysheetgraze" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 3h3l-7 8 8.2 10h-6.4l-5-6.5L4.5 21h-3l7.5-8.6L1.2 3h6.5l4.5 6 5.3-6Zm-1 16h1.7L7.6 4.8H5.8L16.5 19Z"/></svg>X</a>
       </div>
     <span class="hand">Holy Sheet! That's a good looking board.</span>
   </div>
@@ -517,7 +526,8 @@
         v('f-notes')
       ];
       var subject='Holy Sheet! enquiry from '+(v('f-name')||'the website');
-      window.location.href='mailto:natasha.hendricks83@gmail.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(lines.join('\n'));
+      var to=['natasha','hendricks83'].join('.')+'@'+['gmail','com'].join('.');
+      window.location.href='mailto:'+to+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(lines.join('\n'));
     });
   })();
 </script>
